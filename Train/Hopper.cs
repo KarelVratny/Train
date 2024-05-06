@@ -20,6 +20,6 @@ public class Hopper : IWagon {
         train.Wagons.Remove(this);
     }
     public override string ToString() {
-        return $"Hopper, kapacita {LoadingCapacity} kg.";
+        return $"Hopper, kapacita {LoadingCapacity} tun.";
     }
 }
