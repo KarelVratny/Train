@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Train;
-public class EconomyWagon : PersonalWagon {
+public class EconomyWagon : PersonalWagon, IWagon {
     public EconomyWagon(int numberOfchairs) : base(numberOfchairs) { }
     public override string ToString() {
         return $"Economy vagon. {NumberOfChairs} mist k sezeni.";

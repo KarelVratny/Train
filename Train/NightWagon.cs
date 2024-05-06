@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Train;
-public class NightWagon : PersonalWagon {
+public class NightWagon : PersonalWagon, IWagon {
     private Bed[] beds;
     private int numberOfBeds;
 
@@ -16,6 +16,6 @@ public class NightWagon : PersonalWagon {
         beds = new Bed[numberOfBeds];
     }
     public override string ToString() {
-        return $"Nocni vagon. {NumberOfChairs} mist k sezeni. {NumberOfBeds} posteli";
+        return $"Nocni vagon. {NumberOfChairs} mist k sezeni. {NumberOfBeds} lehatek";
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Train;
-public class BussinessWagon : PersonalWagon {
+public class BussinessWagon : PersonalWagon, IWagon {
     private Person steward;
 
     public Person Steward { get => steward; set => steward = value; }
