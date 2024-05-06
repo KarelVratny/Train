@@ -33,15 +33,14 @@ public class Train {
         //}
     }
     public void ListReservedChair() {
-        //string reservedChairs = "Seznam rezervovanych mist";
-        //int i = 0;
-        //foreach (IWagon wagon in wagons) {
-        //    if (wagon is PersonalWagon) {
-        //        foreach(Chair chair in Sits) {
-
-        //        }
-        //    }
-        //}
+        string reservedChairs = "Seznam rezervovanych mist";
+        int i = 0;
+        foreach (PersonalWagon wagon in wagons) {
+            if (wagon is PersonalWagon) {
+                foreach (Chair chair in wagon.Sits) {
+                }
+            }
+        }
     }
     public override string ToString() {
         string toString = $"{Locomotive}";

@@ -14,10 +14,20 @@ public class Hopper : IWagon {
         this.loadingCapacity = tonnage;
     }
     public void ConnectToTrain(Train train) {
-        train.Wagons.Add(this);
+        if (train.Locomotive.Engine.Type == "parni" && train.Wagons.Count >= 5) {
+            throw new Exception("Parni lokomotiva muze mit maximalne 5 vagonu.");
+        }
+        else {
+            train.Wagons.Add(this);
+        }
     }
     public void DisconnectFromTrain(Train train) {
-        train.Wagons.Remove(this);
+        if (train.Wagons.Contains(this)) {
+            train.Wagons.Remove(this);
+        }
+        else {
+            Console.WriteLine("Vlak ktery jste chteli odpojit, neni pripojen k danemu vlaku");
+        }
     }
     public override string ToString() {
         return $"Hopper, kapacita {LoadingCapacity} tun.";

@@ -11,7 +11,13 @@ public class Engine {
     public string Type { get => type; set => type = value; }
 
     public Engine(string type) {
-        this.type = type;
+        if (type == "diesel" || type == "elektricky" || type == "parni") {
+            this.type = type;
+        }
+        else {
+            throw new ArgumentException("Zadejte platny typ motoru (diesel, elektricky, parni)");
+        }
+
     }
     public override string ToString() {
         return $"typ: {Type}";
