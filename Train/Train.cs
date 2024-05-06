@@ -35,13 +35,14 @@ public class Train {
                         if (!chair.Reserved) {
                             chair.Reserved = true;
                             Console.WriteLine("Sedadlo bylo uspesne rezervovano.");
+                            break;
                         }
                         else {
                             Console.WriteLine("Vami vybrane sedadlo je jiz zarezervovano.");
                         }
                     }
                     else {
-                        //Console.WriteLine("Vami zadane sedadlo ve vybranem voze neni.");
+                        Console.WriteLine("Vami zadane sedadlo ve vybranem voze neni.");
                     }
                 }
             }

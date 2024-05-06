@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace Train;
 public interface IWagon {
-    public void ConnectToTrain(Train train) {
-        train.Wagons.Add(this);
-    }
-    public void DisconnectFromTrain(Train train) {
-        train.Wagons.Remove(this);
-    }
+    public void ConnectToTrain(Train train);
+    public void DisconnectFromTrain(Train train);
 }
