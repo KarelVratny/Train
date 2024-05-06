@@ -13,6 +13,12 @@ public class Hopper : IWagon {
     public Hopper(double tonnage) {
         this.loadingCapacity = tonnage;
     }
+    public void ConnectToTrain(Train train) {
+        train.Wagons.Add(this);
+    }
+    public void DisconnectFromTrain(Train train) {
+        train.Wagons.Remove(this);
+    }
     public override string ToString() {
         return $"Hopper, kapacita {LoadingCapacity} kg.";
     }

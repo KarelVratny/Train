@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Train;
-public class PersonalWagon {
+public class PersonalWagon : IWagon {
     private List<Door> doors;
     private List<Chair> sits;
     private int numberOfChairs;
@@ -18,5 +18,11 @@ public class PersonalWagon {
         this.numberOfChairs = numberOfChairs;
         sits = new List<Chair>(numberOfChairs);
         doors = new List<Door>();
+    }
+    public void ConnectToTrain(Train train) {
+        train.Wagons.Add(this);
+    }
+    public void DisconnectFromTrain(Train train) {
+        train.Wagons.Remove(this);
     }
 }
