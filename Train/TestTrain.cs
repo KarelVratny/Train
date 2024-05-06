@@ -17,7 +17,11 @@ public class TestTrain {
             Train train1 = new Train(locomotive1, wagons1);
             Hopper hopper2 = new Hopper(20);
             hopper2.ConnectToTrain(train1);
+
+            //3
+            train1.ReserveChair(2, 4);
             Console.WriteLine(train1);
+
         }
         catch (Exception ex) {
             Console.WriteLine(ex.Message);
@@ -28,13 +32,22 @@ public class TestTrain {
         try {
             Locomotive locomotive2 = new Locomotive(new Person("Jan", "Svoboda"), new Engine("parni"));
             Train train2 = new Train(locomotive2, wagons2);
+
+            try {
+                train2.ConnectToTrain(economy1);
+            }
+            catch (Exception ex) {
+                Console.WriteLine(ex.Message);
+            }
+            //3
+            train2.ReserveChair(2, 4);
+            train2.ListReservedChairs();
+            train2.ReserveChair(2, 4);
             Console.WriteLine(train2);
-            train2.ConnectToTrain(economy1);
         }
         catch (Exception ex) {
             Console.WriteLine(ex.Message);
         }
-        //3
     }
 }
 

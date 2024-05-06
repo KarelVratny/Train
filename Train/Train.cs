@@ -41,7 +41,7 @@ public class Train {
                         }
                     }
                     else {
-                        Console.WriteLine("Vami zadane sedadlo ve vybranem voze neni.");
+                        //Console.WriteLine("Vami zadane sedadlo ve vybranem voze neni.");
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class Train {
             Console.WriteLine("Ve vybranem vlaku se nenachazi vagon s timto cislem.");
         }
     }
-    public void ListReservedChair() {
+    public void ListReservedChairs() {
         string reservedChairs = "Seznam rezervovanych mist:";
         int i = 1;
         foreach (IWagon wagon in wagons) {
@@ -61,7 +61,7 @@ public class Train {
             if (wagon.GetType().IsSubclassOf(typeof(PersonalWagon))) {
                 foreach (Chair chair in ((PersonalWagon)wagon).Sits) {
                     if (chair.Reserved) {
-                        reservedChairs += $"{chair.Number} ";
+                        reservedChairs += $" {chair.Number} ";
                     }
                 }
             }

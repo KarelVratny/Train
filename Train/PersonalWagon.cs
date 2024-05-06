@@ -18,6 +18,9 @@ public class PersonalWagon : IWagon {
         this.numberOfChairs = numberOfChairs;
         sits = new List<Chair>(numberOfChairs);
         doors = new List<Door>();
+        for (int i = 0; i < numberOfChairs; i++) {
+            sits.Add(new Chair(i, true));
+        }
     }
     public void ConnectToTrain(Train train) {
         if (train.Locomotive.Engine.Type == "parni" && train.Wagons.Count >= 5) {
