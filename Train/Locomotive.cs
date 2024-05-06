@@ -14,8 +14,8 @@ public class Locomotive {
 
     public Locomotive() { }
     public Locomotive(Person driver, Engine engine) {
-        Driver = driver;
-        Engine = engine;
+        this.driver = driver;
+        this.engine = engine;
     }
     public override string ToString() {
         return $"Vlak {Engine}, strojvudce: {Driver}";
