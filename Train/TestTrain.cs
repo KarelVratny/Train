@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Train;
 public class TestTrain {
     public static void Mainx() {
+        //1
         BussinessWagon business1 = new BussinessWagon(new Person("Lenka", "Kozakova"), 10);
         NightWagon night1 = new NightWagon(10, 10);
         Hopper hopper1 = new Hopper(10);
@@ -21,6 +22,19 @@ public class TestTrain {
         catch (Exception ex) {
             Console.WriteLine(ex.Message);
         }
+        //2
+        List<IWagon> wagons2 = new List<IWagon>() { new EconomyWagon(10), new EconomyWagon(10), new EconomyWagon(10), new EconomyWagon(10), new EconomyWagon(10) };
+        EconomyWagon economy1 = new EconomyWagon(10);
+        try {
+            Locomotive locomotive2 = new Locomotive(new Person("Jan", "Svoboda"), new Engine("parni"));
+            Train train2 = new Train(locomotive2, wagons2);
+            Console.WriteLine(train2);
+            train2.ConnectToTrain(economy1);
+        }
+        catch (Exception ex) {
+            Console.WriteLine(ex.Message);
+        }
+        //3
     }
 }
 

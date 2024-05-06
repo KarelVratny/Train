@@ -27,10 +27,11 @@ public class Train {
     public void DisconnectFromTrain(IWagon wagon) {
         wagon.DisconnectFromTrain(this);
     }
-    public void ReserveChair(int wagon, int chair) {
-        //if (wagons[wagon] is PersonalWagon) {
-        //    ((PersonalWagon)Wagons[wagon]).Sits.Number == chair;
-        //}
+    public void ReserveChair(int wagon, int chairToReserve) {
+        if (wagons[wagon].GetType().IsSubclassOf(typeof(PersonalWagon))) {
+            foreach (Chair chair in ((PersonalWagon)Wagons[wagon]).Sits)
+                ;
+        }
     }
     public void ListReservedChair() {
         string reservedChairs = "Seznam rezervovanych mist";
