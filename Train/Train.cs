@@ -30,21 +30,24 @@ public class Train {
     public void ReserveChair(int wagon, int chairToReserve) {
         if (wagons.Count > wagon) {
             if (wagons[wagon].GetType().IsSubclassOf(typeof(PersonalWagon))) {
+                string reservationStatus = "";
                 foreach (Chair chair in ((PersonalWagon)Wagons[wagon]).Sits) {
                     if (chair.Number == chairToReserve) {
                         if (!chair.Reserved) {
                             chair.Reserved = true;
-                            Console.WriteLine("Sedadlo bylo uspesne rezervovano.");
+                            reservationStatus = "Sedadlo bylo uspesne rezervovano.";
                             break;
                         }
                         else {
-                            Console.WriteLine("Vami vybrane sedadlo je jiz zarezervovano.");
+                            reservationStatus = "Vami vybrane sedadlo je jiz zarezervovano.";
+                            break;
                         }
                     }
                     else {
-                        Console.WriteLine("Vami zadane sedadlo ve vybranem voze neni.");
+                        reservationStatus = "Vami zadane sedadlo ve vybranem voze neni.";
                     }
                 }
+                Console.WriteLine(reservationStatus);
             }
             else {
                 Console.WriteLine("Vagon tohoto typu nenabizi mista k sezeni.");
