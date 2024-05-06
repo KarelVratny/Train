@@ -8,7 +8,7 @@ namespace Train;
 public class Chair {
     private bool nearWindow;
     private int number;
-    private bool reserved;
+    private bool reserved = false;
 
     public bool NearWindow { get => nearWindow; set => nearWindow = value; }
     public int Number { get => number; set => number = value; }

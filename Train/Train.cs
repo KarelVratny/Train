@@ -28,20 +28,45 @@ public class Train {
         wagon.DisconnectFromTrain(this);
     }
     public void ReserveChair(int wagon, int chairToReserve) {
-        if (wagons[wagon].GetType().IsSubclassOf(typeof(PersonalWagon))) {
-            foreach (Chair chair in ((PersonalWagon)Wagons[wagon]).Sits)
-                ;
+        if (wagons.Count > wagon) {
+            if (wagons[wagon].GetType().IsSubclassOf(typeof(PersonalWagon))) {
+                foreach (Chair chair in ((PersonalWagon)Wagons[wagon]).Sits) {
+                    if (chair.Number == chairToReserve) {
+                        if (!chair.Reserved) {
+                            chair.Reserved = true;
+                            Console.WriteLine("Sedadlo bylo uspesne rezervovano.");
+                        }
+                        else {
+                            Console.WriteLine("Vami vybrane sedadlo je jiz zarezervovano.");
+                        }
+                    }
+                    else {
+                        Console.WriteLine("Vami zadane sedadlo ve vybranem voze neni.");
+                    }
+                }
+            }
+            else {
+                Console.WriteLine("Vagon tohoto typu nenabizi mista k sezeni.");
+            }
+        }
+        else {
+            Console.WriteLine("Ve vybranem vlaku se nenachazi vagon s timto cislem.");
         }
     }
     public void ListReservedChair() {
-        string reservedChairs = "Seznam rezervovanych mist";
-        int i = 0;
-        foreach (PersonalWagon wagon in wagons) {
-            if (wagon is PersonalWagon) {
-                foreach (Chair chair in wagon.Sits) {
+        string reservedChairs = "Seznam rezervovanych mist:";
+        int i = 1;
+        foreach (IWagon wagon in wagons) {
+            reservedChairs += $"\n{i++}. vagon:";
+            if (wagon.GetType().IsSubclassOf(typeof(PersonalWagon))) {
+                foreach (Chair chair in ((PersonalWagon)wagon).Sits) {
+                    if (chair.Reserved) {
+                        reservedChairs += $"{chair.Number} ";
+                    }
                 }
             }
         }
+        Console.WriteLine(reservedChairs);
     }
     public override string ToString() {
         string toString = $"{Locomotive}";
